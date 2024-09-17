@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+// src/App.js
+import React from 'react';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Usar HashRouter para GitHub Pages
+import GameButton from './components/GameButton';
+import MiniGame1 from './components/MiniGame1';
+import MiniGame2 from './components/MiniGame2';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={
+            <div>
+              <h1>Mi Página de Mini-Juegos</h1>
+              <GameButton 
+                gameName="Mini Juego 1" 
+                gameDescription="¡Diviértete con el primer mini-juego!" 
+                route="/juego/minijuego1" 
+              />
+              <GameButton 
+                gameName="Mini Juego 2" 
+                gameDescription="¡No te pierdas el segundo mini-juego!" 
+                route="/juego/minijuego2" 
+              />
+            </div>
+          } />
+          <Route path="/juego/minijuego1" element={<MiniGame1 />} />
+          <Route path="/juego/minijuego2" element={<MiniGame2 />} />
+        </Routes>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
