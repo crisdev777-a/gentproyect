@@ -3,7 +3,7 @@ import React from 'react';
 import { HashRouter as Router, Route, Routes } from 'react-router-dom'; // Usar HashRouter para GitHub Pages
 import GameButton from './components/GameButton';
 import MiniGame1 from './components/MiniGame1';
-import MiniGame2 from './components/MiniGame2';
+import CountryCapitalGame from './components/CountryCapitalGame';
 
 const App = () => {
   return (
@@ -19,14 +19,14 @@ const App = () => {
                 route="/juego/minijuego1" 
               />
               <GameButton 
-                gameName="Mini Juego 2" 
+                gameName="CountryCapitalGame" 
                 gameDescription="¡No te pierdas el segundo mini-juego!" 
-                route="/juego/minijuego2" 
+                route="/juego/CountryCapitalGame" 
               />
             </div>
           } />
           <Route path="/juego/minijuego1" element={<MiniGame1 />} />
-          <Route path="/juego/minijuego2" element={<MiniGame2 />} />
+          <Route path="/juego/CountryCapitalGame" element={<CountryCapitalGame />} />
         </Routes>
       </div>
     </Router>
