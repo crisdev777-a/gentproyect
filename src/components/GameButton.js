@@ -1,19 +1,21 @@
-// src/components/GameButton.js
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import './GameButton.css'; // Estilo CSS actualizado
 
-const GameButton = ({ gameName, gameDescription, route }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(`${route}`); // Cambiado para incluir /juego
-  };
-
+const GameButton = ({ gameName, gameDescription, route, image }) => {
   return (
-    <div className="game-button" onClick={handleClick}>
-      <h3>{gameName}</h3>
-      <p>{gameDescription}</p>
-      <button>Jugar</button>
+    <div className="game-card">
+      <div className="image-wrapper">
+        <img src={image} alt={gameName} className="game-image" />
+      </div>
+      <div className="game-info">
+        <h3>{gameName}</h3>
+        <p>{gameDescription}</p>
+        {/* Link mantiene la redirección a la página del juego */}
+        <Link to={route}>
+          <button className="play-button">Jugar</button>
+        </Link>
+      </div>
     </div>
   );
 };

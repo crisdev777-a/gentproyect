@@ -1,6 +1,6 @@
-// src/components/MiniGame1.js
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import './MiniGame1.css';
 
 const MiniGame1 = () => {
   const [flags, setFlags] = useState([]);
@@ -8,12 +8,19 @@ const MiniGame1 = () => {
   const [guess, setGuess] = useState('');
   const [feedback, setFeedback] = useState('');
   const [timeLeft, setTimeLeft] = useState(60);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+  const [showModal, setShowModal] = useState(false);
+  const [hint, setHint] = useState('');
+  const [hintCount, setHintCount] = useState(0);
+  const [timeOver, setTimeOver] = useState(false); // Nuevo estado para controlar el tiempo agotado
   const timerRef = useRef(null);
 
-  // Lista de países más conocidos (códigos de país en formato ISO 3166-1 alpha-2)
-  const knownCountries = [
-    'US', 'FR', 'DE', 'JP', 'GB', 'CN', 'IN', 'BR', 'ZA', 'IT'
-  ];
+  const knownCountries = ['US', 'FR', 'DE', 'JP', 'GB', 'CN', 'IN', 'BR', 'ZA', 'IT'];
+
+  // Función para remover tildes de las palabras
+  const removeAccents = (str) => {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  };
 
   useEffect(() => {
     const fetchFlags = async () => {
@@ -24,10 +31,9 @@ const MiniGame1 = () => {
           .filter(country => knownCountries.includes(country.cca2))
           .map(country => ({
             url: country.flags.png,
-            answer: country.translations.spa?.common || country.name.common // Use Spanish translation if available
+            answer: removeAccents(country.translations.spa?.common || country.name.common)
           }));
 
-        // Shuffle the knownFlagData array and get the first 5
         const shuffledFlags = knownFlagData.sort(() => Math.random() - 0.5).slice(0, 5);
         setFlags(shuffledFlags);
       } catch (error) {
@@ -36,9 +42,8 @@ const MiniGame1 = () => {
     };
     fetchFlags();
 
-    // Start the timer
     if (timeLeft > 0) {
-      timerRef.current = setInterval(() => setTimeLeft((prev) => prev - 1), 1000);
+      timerRef.current = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
     }
 
     return () => clearInterval(timerRef.current);
@@ -46,17 +51,18 @@ const MiniGame1 = () => {
 
   useEffect(() => {
     if (timeLeft <= 0) {
-      setFeedback('Tiempo agotado. ¡Juego terminado!');
+      setFeedback('¡Tiempo agotado!'); // Feedback cuando el tiempo se acaba
+      setTimeOver(true); // Mostrar mensaje motivador y botón de reinicio
       clearInterval(timerRef.current);
     }
   }, [timeLeft]);
 
   useEffect(() => {
-    if (currentIndex === flags.length) {
-      setFeedback('¡Felicidades! Has adivinado todas las banderas.');
-      clearInterval(timerRef.current); // Stop the timer
+    if (correctAnswers === flags.length && flags.length > 0) {
+      setShowModal(true);
+      clearInterval(timerRef.current);
     }
-  }, [currentIndex, flags.length]);
+  }, [correctAnswers, flags.length]);
 
   const handleGuessChange = (e) => {
     setGuess(e.target.value);
@@ -65,20 +71,47 @@ const MiniGame1 = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const currentFlag = flags[currentIndex];
-    
-    if (guess.trim().toLowerCase() === currentFlag.answer.toLowerCase()) {
+
+    if (removeAccents(guess.trim().toLowerCase()) === currentFlag.answer.toLowerCase()) {
       setFeedback('¡Correcto!');
       setGuess('');
-      // Move to the next flag after a short delay
+      setCorrectAnswers(prev => prev + 1);
+
       setTimeout(() => {
         if (currentIndex < flags.length - 1) {
-          setCurrentIndex((prev) => prev + 1);
+          setCurrentIndex(prev => prev + 1);
           setFeedback('');
+          setHint('');
+          setHintCount(0);
         }
-      }, 1000); // Delay before moving to the next flag
+      }, 1000);
     } else {
       setFeedback('Inténtalo de nuevo.');
     }
+  };
+
+  const handleHint = () => {
+    const currentFlag = flags[currentIndex];
+    const answer = currentFlag.answer;
+
+    if (hintCount === 0) {
+      setHint(`Pista: La primera letra es "${answer[0].toUpperCase()}"`);
+      setTimeLeft(prev => Math.max(0, prev - 10));
+    } else if (hintCount === 1) {
+      setHint(`Pista: Las tres primeras letras son "${answer.substring(0, 3).toUpperCase()}"`);
+      setTimeLeft(prev => Math.max(0, prev - 15));
+    }
+
+    setHintCount(prev => prev + 1);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+    window.location.reload();
+  };
+
+  const restartGame = () => {
+    window.location.reload();
   };
 
   return (
@@ -98,13 +131,32 @@ const MiniGame1 = () => {
                 />
                 <button type="submit">Adivinar</button>
               </form>
+              <button className="hint-button" onClick={handleHint}>
+                Pista ({hintCount === 0 ? '-10' : '-15'} segundos)
+              </button>
+              {hint && <p>{hint}</p>}
               <p>Tiempo restante: {timeLeft} segundos</p>
               {feedback && <p>{feedback}</p>}
             </div>
           )}
         </div>
+      ) : timeOver ? (
+        <div>
+          <p>No te rindas, seguí practicando. ¡Volvé a intentar!</p>
+          <button onClick={restartGame}>Reintentar</button>
+        </div>
       ) : (
         <p>¡Tiempo agotado! ¡Juego terminado!</p>
+      )}
+
+      {showModal && (
+        <div className="modal">
+          <div className="modal-content">
+            <h2>¡Felicidades!</h2>
+            <p>Has adivinado todas las banderas correctamente 🎉</p>
+            <button onClick={closeModal}>Jugar de nuevo</button>
+          </div>
+        </div>
       )}
     </div>
   );
