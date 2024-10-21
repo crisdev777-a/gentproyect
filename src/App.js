@@ -4,6 +4,7 @@ import './App.css';
 import CountryCapitalGame from './components/CountryCapitalGame';
 import FamousHangmanGame from './components/FamousHangmanGame';
 import GameButton from './components/GameButton';
+import HistoricalEventsGame from './components/HistoricalEventsGame';
 import MiniGame1 from './components/MiniGame1';
 import WordleGame from './components/WordleGame';
 
@@ -35,6 +36,12 @@ const HomePage = () => (
         image="https://upload.wikimedia.org/wikipedia/commons/e/ec/Wordle_196_example.svg"
         route="/juego/WordleGame" 
       />
+      <GameButton 
+        gameName="Ordena los hechos" 
+        gameDescription="¡Ordena los hechos!" 
+        image="https://st2.depositphotos.com/1259239/8917/v/450/depositphotos_89177026-stock-illustration-timeline-infographic-vector.jpg"
+        route="/juego/HistoricalEventsGame" 
+      />
     </div>
   </div>
 );
@@ -51,6 +58,7 @@ const App = () => {
         <Route path="/juego/CountryCapitalGame" element={<CountryCapitalGame />} />
         <Route path="/juego/FamousHangmanGame" element={<FamousHangmanGame />} />
         <Route path="/juego/WordleGame" element={<WordleGame />} />
+        <Route path="/juego/HistoricalEventsGame" element={<HistoricalEventsGame />} />
       </Routes>
     </Router>
   );

@@ -1,0 +1,43 @@
+.game-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .events-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .event-card {
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+    display: flex;
+    align-items: center;
+    cursor: move;
+    position: relative;
+  }
+  
+  .event-number {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .check-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .check-button:hover {
+    background-color: #0056b3;
+  }
+  

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './WordleGame.css'; // Asegúrate de agregar este archivo CSS
 
-const WORDS = ['react', 'apple', 'house', 'world', 'bread']; // Lista de palabras posibles
+const WORDS = ['chile', 'nepal', 'india', 'malta', 'paris','paris', 'kyoto', 'cairo', 'miami']; // Lista de palabras posibles
 const MAX_ATTEMPTS = 6;
 
 const WordleGame = () => {
