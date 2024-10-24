@@ -1,76 +1,42 @@
-<<<<<<< HEAD
+.game-container {
+  padding: 20px;
+  text-align: center;
+}
+
 .events-list {
   display: flex;
   flex-direction: column;
-  gap: 30px; /* Aumenta la separación entre tarjetas */
-  align-items: center; /* Centra las tarjetas */
+  align-items: center;
 }
 
 .event-card {
-  background-color: white;
-  padding: 20px 30px; /* Aumenta el espacio interior para que el texto no esté tan pegado a los bordes */
-  border: 2px solid #007bff; /* Añade un borde más grueso */
-  border-radius: 8px; /* Bordes redondeados para una mejor apariencia */
-  width: 250px; /* Tamaño más consistente */
-  text-align: center; /* Centra el texto en cada tarjeta */
-  font-size: 16px; /* Tamaño de texto adecuado */
-  transition: transform 0.3s ease, filter 0.3s ease;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  cursor: move;
+  position: relative;
+}
+
+.event-number {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.check-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
 }
 
-.event-card:hover {
-  transform: scale(1.05);
+.check-button:hover {
+  background-color: #0056b3;
 }
-
-
-
-/* Excluye la tarjeta que está siendo "hovereada" */
-.events-list .event-card:hover {
-  filter: none;
-  transform: scale(1.05);
-}
-=======
-.game-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .events-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .event-card {
-    background-color: #f0f0f0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 5px;
-    width: 200px;
-    display: flex;
-    align-items: center;
-    cursor: move;
-    position: relative;
-  }
-  
-  .event-number {
-    font-weight: bold;
-    margin-right: 10px;
-  }
-  
-  .check-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .check-button:hover {
-    background-color: #0056b3;
-  }
-  
->>>>>>> f2f9ffbc9d2992e473c7d951ae3096fca8390508

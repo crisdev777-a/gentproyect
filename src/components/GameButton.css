@@ -50,7 +50,6 @@
   }
   
   /* Botón de jugar */
-<<<<<<< HEAD
   .memotest-button {
     position: relative;
     padding: 10px 22px;
@@ -143,21 +142,5 @@
         110% 10%;
       background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
-=======
-  .play-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 25px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-  }
-  
-  .play-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
->>>>>>> f2f9ffbc9d2992e473c7d951ae3096fca8390508
   }
   

@@ -99,11 +99,7 @@ const CountryCapitalGame = () => {
           </div>
           {!hintUsed && (
             <button onClick={handleHint} className="hint-button">
-<<<<<<< HEAD
               Usar Pista (Eliminar 2 opciones)
-=======
-              Usar Pista (Eliminar 3 opciones)
->>>>>>> f2f9ffbc9d2992e473c7d951ae3096fca8390508
             </button>
           )}
         </div>
