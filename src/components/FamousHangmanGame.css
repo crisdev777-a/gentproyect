@@ -1,0 +1,74 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Contenedor principal del juego */
+  .hangman-container {
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 400px;
+  }
+  
+  /* Imagen del personaje */
+  .hangman-image {
+    border-radius: 50%;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Título del juego */
+  .hangman-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #2c3e50;
+  }
+  
+  /* Estilo de la palabra oculta */
+  .hangman-word {
+    font-size: 26px;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo de las letras incorrectas */
+  .incorrect-guesses {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  
+  /* Intentos restantes */
+  .remaining-attempts {
+    font-size: 18px;
+    color: #2980b9;
+    margin-bottom: 20px;
+  }
+  
+  /* Botón para reiniciar el juego */
+  .hangman-restart-btn {
+    padding: 10px 20px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .hangman-restart-btn:hover {
+    background-color: #2ecc71;
+  }
+  
