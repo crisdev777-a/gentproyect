@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import './WordleGame.css'; // Asegúrate de agregar este archivo CSS
 
 const WORDS = ['acera', 'alzar', 'balas', 'cazar', 'duero', 'frase', 'gesto', 'hacer', 'jugar', 'Lucha', 'molar', 'nacer', 'ojalá', 'pacto', 'quiso', 'rápido', 'salvo', 'tacto'];
 
+=======
+import React, { useEffect, useState } from 'react';
+import './WordleGame.css'; // Asegúrate de agregar este archivo CSS
+
+const WORDS = ['chile', 'nepal', 'india', 'malta', 'paris','paris', 'kyoto', 'cairo', 'miami']; // Lista de palabras posibles
+>>>>>>> f2f9ffbc9d2992e473c7d951ae3096fca8390508
 const MAX_ATTEMPTS = 6;
 
 const WordleGame = () => {
