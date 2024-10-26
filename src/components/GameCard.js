@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './GameButton.css'; // Estilo CSS actualizado
+import './GameCard.css'; // Estilo CSS actualizado
 
-const GameButton = ({ gameName, gameDescription, route, image }) => {
+const GameCard = ({ gameName, gameDescription, route, image }) => {
   return (
     <div className="game-card">
       <div className="image-wrapper">
@@ -20,4 +20,4 @@ const GameButton = ({ gameName, gameDescription, route, image }) => {
   );
 };
 
-export default GameButton;
+export default GameCard;

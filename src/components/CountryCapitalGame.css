@@ -2,7 +2,7 @@
     text-align: center;
     margin-top: 20px;
     font-family: 'Arial', sans-serif;
-    background-color: #f0f8ff;
+    background-color: #7cd3ee8e;
     padding: 20px;
     border-radius: 10px;
     width: 60%;
@@ -27,7 +27,7 @@
   .option-button {
     padding: 10px 20px;
     background-color: #4caf50;
-    color: white;
+    color: rgb(190, 99, 99);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -41,7 +41,7 @@
   .hint-button {
     margin-top: 10px;
     background-color: #ffa500;
-    color: white;
+    color: rgb(175, 137, 137);
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
@@ -66,7 +66,7 @@
   }
   
   .modal-content {
-    background-color: white;
+    background-color: rgb(80, 22, 22);
     padding: 30px;
     border-radius: 10px;
     text-align: center;

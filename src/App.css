@@ -5,73 +5,67 @@
   box-sizing: border-box;
 }
 
-
-/* App.css */
+/* Estilo del header */
 header {
   background-color: #7cd3ee;
   color: white;
   height: 100px; /* Altura fija del header */
   display: flex; /* Usar flexbox para centrar el contenido */
   align-items: center; /* Centrar verticalmente */
-  justify-content: flex-start; /* Cambiar a flex-start para alinear el contenido a la izquierda */
-  padding-left: 20px; /* Agregar un poco de espacio a la izquierda */
+  justify-content: flex-start; /* Alinear el contenido a la izquierda */
+  padding-left: 20px; /* Espacio a la izquierda */
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 0;
+  z-index: 1; /* Asegúrate de que el header esté por encima del canvas */
 }
-
-
-body {
+/* Estilo de la aplicación principal */
+.App {
   font-family: Arial, sans-serif;
   overflow-y: auto; /* Permite el scroll vertical */
-  background-color: black; /* Establecer el fondo del body a negro */
-  margin: 0; /* Asegúrate de que no haya margen por defecto */
-  padding: 0; /* Asegúrate de que no haya padding por defecto */
-}
-
-body.light-mode {
-  background-color: white; /* Cambiar a blanco en modo claro */
-}
-
-.App {
+  background-color: transparent; /* Establecer el fondo del body a blanco */
   text-align: center;
   background-color: transparent;
   min-height: 100vh;
+  overflow-y: auto; 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   position: relative;
   z-index: 1;
-  margin-top: 100px; /* Añadir margen superior para que las cards no se superpongan al header */
+  margin-top: 100px; /* Margen superior para evitar superposición con el header */
+}
+
+/* Estilo del CultureQuizz */
+.text-naranja {
+  color: orange; /* Color de la fuente */
+  text-shadow: 
+    -1px -1px 0 rgba(0, 0, 0, 1),  
+    1px -1px 0 rgba(0, 0, 0, 1),  
+    -1px 1px 0 rgba(0, 0, 0, 1),  
+    1px 1px 0 rgba(0, 0, 0, 1),  /* Contorno negro */
+    2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra negra */
+  font-family: Arial, sans-serif; /* Fuente por defecto */
+  font-size: 2rem; /* Ajusta el tamaño de la fuente según sea necesario */
 }
 
 
-h1 {
-  font-family: "Honk", system-ui;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "MORF" 15, "SHLN" 50;
-  font-size: 3rem; /* Ajusta este valor para cambiar el tamaño */
-}
 
-
-
+/* Estilo de la cuadrícula de juegos */
 .games-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   width: 100%;
   max-width: 1500px;
-  margin-top: 120px; /* Añadir margen superior para que las cards no se superpongan al header */
+  margin-top: 120px; /* Margen superior para evitar superposición con el header */
   margin-bottom: 20px; /* Espacio al final de la cuadrícula */
 }
 
-
+/* Estilo para los botones de juego */
 .game-button {
   border: 1px solid #ddd;
   border-radius: 5px;
@@ -83,13 +77,14 @@ h1 {
 }
 
 .game-button:hover {
-  background-color: #f0f0f0;
+  background-color: #ffffff; /* Color de fondo al pasar el mouse */
 }
 
 /* Estilo para el canvas */
 canvas {
   position: absolute; /* Hacer que el canvas cubra toda la pantalla */
-  top: 0;
+  top: 100px; /* Mover el canvas hacia abajo, comenzando justo debajo del header */
   left: 0;
   z-index: 0; /* Asegurarse de que esté detrás de otros elementos */
 }
+
