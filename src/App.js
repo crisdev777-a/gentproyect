@@ -14,6 +14,7 @@ import QuienLoDijo from './components/QuienLoDijo';
 import Background from './components/Background';
 import Tierra from './components/Tierra';
 
+
 const HomePage = () => (
   <div>
     <div className="games-grid">
@@ -25,6 +26,7 @@ const HomePage = () => (
       <GameCard gameName="Ordena la historia" gameDescription="¡Organiza los acontecimientos en orden cronologico!" image="https://st2.depositphotos.com/1259239/8917/v/450/depositphotos_89177026-stock-illustration-timeline-infographic-vector.jpg" route="/juego/HistoricalEventsGame" />
       <GameCard gameName="Completa la frase" gameDescription="¡Encuenta la palabra correcta para completar la frase!" image="https://paginadelespanol.com/wp-content/uploads/2019/03/Completa-la-frase-1-570x478.png" route="/juego/completaLaFrase" />
       <GameCard gameName="¿Quien lo dijo?" gameDescription="¡Adivina a quien el pertenece la frase!" image="https://stonkstutors.com/wp-content/uploads/2022/04/Los-mejores-juegos-de-adivinar-paises-para-Android-e-iOS.jpg" route="/juego/QuienLoDijo" />
+    
     </div>
   </div>
 );
