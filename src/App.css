@@ -9,23 +9,23 @@
 header {
   background-color: #7cd3ee;
   color: white;
-  height: 100px; /* Altura fija del header */
-  display: flex; /* Usar flexbox para centrar el contenido */
-  align-items: center; /* Centrar verticalmente */
-  justify-content: flex-start; /* Alinear el contenido a la izquierda */
-  padding-left: 20px; /* Espacio a la izquierda */
+  height: 100px; 
+  display: flex; 
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px; 
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   width: 100%;
-  z-index: 1; /* Asegúrate de que el header esté por encima del canvas */
+  z-index: 1; 
 }
 /* Estilo de la aplicación principal */
 .App {
   font-family: Arial, sans-serif;
-  overflow-y: auto; /* Permite el scroll vertical */
-  background-color: transparent; /* Establecer el fondo del body a blanco */
+  overflow-y: auto; 
+  background-color: transparent; 
   text-align: center;
   background-color: transparent;
   min-height: 100vh;
@@ -36,20 +36,20 @@ header {
   padding: 20px;
   position: relative;
   z-index: 1;
-  margin-top: 100px; /* Margen superior para evitar superposición con el header */
+  margin-top: 100px; 
 }
 
 /* Estilo del CultureQuizz */
 .text-naranja {
-  color: orange; /* Color de la fuente */
+  color: orange; 
   text-shadow: 
     -1px -1px 0 rgba(0, 0, 0, 1),  
     1px -1px 0 rgba(0, 0, 0, 1),  
     -1px 1px 0 rgba(0, 0, 0, 1),  
-    1px 1px 0 rgba(0, 0, 0, 1),  /* Contorno negro */
-    2px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra negra */
-  font-family: Arial, sans-serif; /* Fuente por defecto */
-  font-size: 2rem; /* Ajusta el tamaño de la fuente según sea necesario */
+    1px 1px 0 rgba(0, 0, 0, 1),  
+    2px 2px 4px rgba(0, 0, 0, 0.5); 
+  font-family: Arial, sans-serif;
+  font-size: 2rem; 
 }
 
 
@@ -57,11 +57,11 @@ header {
 /* Estilo de la cuadrícula de juegos */
 .games-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajusta el tamaño mínimo de las columnas */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
   gap: 20px;
   width: 100%;
   max-width: 1200px;
-  margin-top: 535px; /* Espaciado superior para que el contenido comience justo debajo del header */
+  margin-top: 535px; 
   margin-bottom: 20px;
 }
 
@@ -78,14 +78,14 @@ header {
 }
 
 .game-button:hover {
-  background-color: #ffffff; /* Color de fondo al pasar el mouse */
+  background-color: #ffffff; 
 }
 
 /* Estilo para el canvas */
 canvas {
-  position: absolute; /* Hacer que el canvas cubra toda la pantalla */
-  top: 100px; /* Mover el canvas hacia abajo, comenzando justo debajo del header */
+  position: absolute;
+  top: 100px; 
   left: 0;
-  z-index: 0; /* Asegurarse de que esté detrás de otros elementos */
+  z-index: 0; 
 }
 

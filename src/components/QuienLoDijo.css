@@ -15,13 +15,13 @@ button {
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background-color: #4CAF50; /* Color de fondo por defecto */
+    background-color: #4CAF50; 
     color: white;
     transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #45a049; /* Color al pasar el mouse */
+    background-color: #45a049; 
 }
 
 .message {

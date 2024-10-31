@@ -48,7 +48,7 @@
     backface-visibility: hidden;
     border-radius: 16px;
     transform: rotateY(0deg);
-    background-image: url('C:/Users/crisg/Desktop/Repo-Generaciont-main/public/images/back.png');
+    background-image: url('/public/images/back.png');
     background-size: cover;
     background-position: center;
 }
